@@ -37,7 +37,23 @@ namespace Core
 
         void ITracer.StopTrace()
         {
-            throw new System.NotImplementedException();
+            int threadId = Environment.CurrentManagedThreadId;
+            var bufferMethodInfo = _threads[threadId].RunningMethods.Pop();
+
+            bufferMethodInfo.Clock.Stop();
+            bufferMethodInfo.UpdateMilliseconds();
+
+            var methodInfo = new MethodInfo(bufferMethodInfo.Name, bufferMethodInfo.TypeName,
+                                            bufferMethodInfo.Milliseconds, bufferMethodInfo.Methods);
+            
+            if (_threads[threadId].RunningMethods.Count == 0)
+            { 
+                _threads[threadId].Methods.Add(methodInfo);
+            }
+            else
+            {
+                _threads[threadId].RunningMethods.Peek().Methods.Add(methodInfo);
+            }
         }
     }
 }
