@@ -47,6 +47,10 @@
     <Compile Include="ITracer.cs" />
     <Compile Include="Result\MethodInfo.cs" />
     <Compile Include="Result\ThreadInfo.cs" />
+    <Compile Include="Serialization\Json\JsonTraceSerializer.cs" />
+    <Compile Include="Serialization\Json\MethodInfo.cs" />
+    <Compile Include="Serialization\Json\ThreadInfo.cs" />
+    <Compile Include="Serialization\Json\TraceResult.cs" />
     <Compile Include="Serialization\Writer\ConsoleWriter.cs" />
     <Compile Include="Serialization\Writer\FileWriter.cs" />
     <Compile Include="Serialization\Writer\IResultWriter.cs" />
