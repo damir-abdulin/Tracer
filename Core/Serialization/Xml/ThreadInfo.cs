@@ -10,7 +10,7 @@ namespace Core.Serialization.Xml
         public int ThreadId { get; set; }
 
         [XmlAttribute(AttributeName = "time", Form = XmlSchemaForm.Unqualified)]
-        public long Milliseconds { get; set; }
+        public string Milliseconds { get; set; }
         
         [XmlElement(ElementName = "method")]
         public List<MethodInfo> Methods { get; set; } = new List<MethodInfo>();
@@ -19,7 +19,7 @@ namespace Core.Serialization.Xml
         public ThreadInfo(Result.ThreadInfo threadInfo)
         {
             ThreadId = threadInfo.ThreadId;
-            Milliseconds = threadInfo.Milliseconds;
+            Milliseconds = $"{threadInfo.Milliseconds}ms";
 
             foreach (var method in threadInfo.Methods)
             {
