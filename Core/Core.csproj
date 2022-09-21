@@ -47,6 +47,9 @@
     <Compile Include="ITracer.cs" />
     <Compile Include="Result\MethodInfo.cs" />
     <Compile Include="Result\ThreadInfo.cs" />
+    <Compile Include="Serialization\Writer\ConsoleWriter.cs" />
+    <Compile Include="Serialization\Writer\FileWriter.cs" />
+    <Compile Include="Serialization\Writer\IResultWriter.cs" />
     <Compile Include="Serialization\Xml\MethodInfo.cs" />
     <Compile Include="Serialization\Xml\ThreadInfo.cs" />
     <Compile Include="Serialization\Xml\TraceResult.cs" />
@@ -55,8 +58,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result\TraceResult.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Serialization\Writer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
