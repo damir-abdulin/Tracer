@@ -1,4 +1,4 @@
-﻿using Result;
+﻿using Core.Result;
 
 namespace Core
 {
