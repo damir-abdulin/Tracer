@@ -1,4 +1,6 @@
-﻿namespace Core
+﻿using Result;
+
+namespace Core
 {
     public class Tracer : ITracer
     {
