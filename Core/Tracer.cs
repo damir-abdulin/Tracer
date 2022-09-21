@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Core.Result;
 
@@ -16,7 +17,14 @@ namespace Core
 
         TraceResult ITracer.GetTraceResult()
         {
-            throw new System.NotImplementedException();
+            List<ThreadInfo> threads = new List<ThreadInfo>();
+
+            foreach (var threadId in _threads.Keys)
+            {
+                threads.Add(new ThreadInfo(threadId, _threads[threadId].Methods));
+            }
+
+            return new TraceResult(threads);
         }
 
         void ITracer.StartTrace()
