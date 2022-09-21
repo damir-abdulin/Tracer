@@ -41,12 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BufferMethodInfo.cs" />
+    <Compile Include="BufferThreadInfo.cs" />
     <Compile Include="ITracer.cs" />
-    <Compile Include="Result\MethodInfo.cs" />
-    <Compile Include="Result\ThreadInfo.cs" />
+    <Compile Include="Core.Result\MethodInfo.cs" />
+    <Compile Include="Core.Result\ThreadInfo.cs" />
     <Compile Include="Tracer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Result\TraceResult.cs" />
+    <Compile Include="Core.Result\TraceResult.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

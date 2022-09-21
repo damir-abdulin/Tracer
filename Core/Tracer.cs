@@ -1,9 +1,19 @@
-﻿using Core.Result;
+﻿using System;
+using System.Collections.Concurrent;
+using System.Diagnostics;
+using Core.Result;
 
 namespace Core
 {
     public class Tracer : ITracer
     {
+        private ConcurrentDictionary<int, BufferThreadInfo> _threads;
+
+        public Tracer()
+        {
+            _threads = new ConcurrentDictionary<int, BufferThreadInfo>();
+        }
+
         TraceResult ITracer.GetTraceResult()
         {
             throw new System.NotImplementedException();
@@ -11,7 +21,18 @@ namespace Core
 
         void ITracer.StartTrace()
         {
-            throw new System.NotImplementedException();
+            int threadId = Environment.CurrentManagedThreadId;
+            _threads.GetOrAdd(threadId, new BufferThreadInfo());
+
+            var stackTrace = new StackTrace();
+            var method = stackTrace.GetFrame(1).GetMethod();
+
+            BufferMethodInfo methodInfo = new BufferMethodInfo();
+            methodInfo.Name = method.Name;
+            methodInfo.TypeName = method.DeclaringType.Name;
+            methodInfo.Clock.Start();
+
+            _threads[threadId].RunningMethods.Push(methodInfo);
         }
 
         void ITracer.StopTrace()
