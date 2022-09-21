@@ -1,10 +1,14 @@
-﻿namespace Core.Serialization.Json
+﻿using System.Text.Json;
+
+namespace Core.Serialization.Json
 {
-    internal class JsonTraceSerializer : ITraceSerializer
+    public class JsonTraceSerializer : ITraceSerializer
     {
         string ITraceSerializer.Serialize(Result.TraceResult value)
         {
-            throw new System.NotImplementedException();
+            var traceResult = new TraceResult(value);
+
+            return JsonSerializer.Serialize(traceResult);
         }
     }
 }
