@@ -43,12 +43,21 @@
   <ItemGroup>
     <Compile Include="BufferMethodInfo.cs" />
     <Compile Include="BufferThreadInfo.cs" />
+    <Compile Include="Serialization\ITraceSerializer.cs" />
     <Compile Include="ITracer.cs" />
-    <Compile Include="Core.Result\MethodInfo.cs" />
-    <Compile Include="Core.Result\ThreadInfo.cs" />
+    <Compile Include="Result\MethodInfo.cs" />
+    <Compile Include="Result\ThreadInfo.cs" />
+    <Compile Include="Serialization\Writer\ConsoleWriter.cs" />
+    <Compile Include="Serialization\Writer\FileWriter.cs" />
+    <Compile Include="Serialization\Writer\IResultWriter.cs" />
+    <Compile Include="Serialization\Xml\MethodInfo.cs" />
+    <Compile Include="Serialization\Xml\ThreadInfo.cs" />
+    <Compile Include="Serialization\Xml\TraceResult.cs" />
+    <Compile Include="Serialization\Xml\XmlTraceSerializer.cs" />
     <Compile Include="Tracer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core.Result\TraceResult.cs" />
+    <Compile Include="Result\TraceResult.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
