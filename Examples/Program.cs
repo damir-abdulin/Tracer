@@ -1,5 +1,7 @@
 ﻿using Core;
 using Core.Result;
+using Core.Serialization;
+using Core.Serialization.Xml;
 
 namespace Examples
 {
@@ -16,6 +18,9 @@ namespace Examples
             _tracer.StopTrace();
 
             var result = _tracer.GetTraceResult();
+            ITraceSerializer traceSerializer = new XmlTraceSerializer();
+            System.Console.WriteLine(traceSerializer.Serialize(result));
+
         }
 
         static void InnerMethod1()
