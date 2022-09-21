@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Serialization.Writer
 {
-    internal interface IResultWriter
+    public interface IResultWriter
     {
         void Write(string result);
     }

@@ -2,7 +2,7 @@
 
 namespace Core.Serialization.Writer
 {
-    internal class FileWriter : IResultWriter
+    public class FileWriter : IResultWriter
     {
         private string _destination;
         public FileWriter(string destination)

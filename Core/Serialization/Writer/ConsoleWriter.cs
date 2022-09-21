@@ -2,7 +2,7 @@
 
 namespace Core.Serialization.Writer
 {
-    internal class ConsoleWriter : IResultWriter
+    public class ConsoleWriter : IResultWriter
     {
         void IResultWriter.Write(string result)
         {
