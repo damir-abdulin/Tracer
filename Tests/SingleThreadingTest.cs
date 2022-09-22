@@ -7,11 +7,12 @@ namespace Tests
     [TestFixture]
     internal class SingleThreadingTest
     {
-        private ITracer _tracer = new Tracer();
+        private ITracer _tracer;
         private TraceResult _traceResult;
 
         public SingleThreadingTest()
         {
+            _tracer = new Tracer();
             var foo = new Foo(_tracer);
             foo.MyMethod();
             _traceResult = _tracer.GetTraceResult();
