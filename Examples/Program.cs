@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Core;
 using Core.Serialization;
-using Core.Serialization.Xml;
+using Core.Serialization.Json;
+using Core.Serialization.Writer;
 
 namespace Examples
 {
@@ -32,10 +33,14 @@ namespace Examples
                 
             var result = _tracer.GetTraceResult();
             
-            
-            ITraceSerializer traceSerializer = new XmlTraceSerializer();
 
-            System.Console.WriteLine(traceSerializer.Serialize(result));
+            ITraceSerializer traceSerializer = new JsonTraceSerializer();
+
+            IResultWriter writer = new FileWriter("D:\\test.json");
+            writer.Write(traceSerializer.Serialize(result));
+
+            writer = new ConsoleWriter();
+            writer.Write(traceSerializer.Serialize(result));   
         }
     }
 }
